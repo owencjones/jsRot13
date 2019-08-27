@@ -1,4 +1,4 @@
-#! /usr/bin/env/node
+#! /usr/bin/env node
 const { it, describe, assert } = require('./lib/testLib')
 const { code } = require('./lib/rot13');
 
@@ -16,7 +16,3 @@ describe('#code', () => {
         assert(code(expectedOutCome) === originalMessage, 'Decoding failure')
     });
 });
-
-describe('#getRot13LookupTable', () => {
-
-})
