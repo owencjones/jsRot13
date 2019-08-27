@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+const { code } = require('./lib/rot13');
+const node_version = parseInt(process.version.match(/v(\d+)\.\d+\.\d+/)[1])
+
+if (node_version < 10) {
+    console.error(`Requires version 10 or above of Node`);
+    process.exit(1);
+}
+
+if (process.argv.length === 2) {
+    console.error('Requires string to be passed.')
+    process.exit(1);
+}
+
+const encode = Array.from(process.argv);
+
+// Remove spurious parts of encode decode string
+encode.shift();
+encode.shift();
+
+console.log(code(encode.join(' ')));
+
+process.exit(0);
